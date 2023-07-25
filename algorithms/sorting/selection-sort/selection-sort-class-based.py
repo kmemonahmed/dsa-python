@@ -20,9 +20,9 @@ class SelectionSort:
     
         return self.arr
     
-
-unsorted_arr = [5, 2, 1, 7, 6, 8, 3, 4, 9, 0, 10, 7, 14, 13, 11]
-selection_sort = SelectionSort(unsorted_arr)
-selection_sort.sort()
-print(selection_sort.arr)
+if __name__ == "__main__":
+    unsorted_arr = [5, 2, 1, 7, 6, 8, 3, 4, 9, 0, 10, 7, 14, 13, 11]
+    selection_sort = SelectionSort(unsorted_arr)
+    selection_sort.sort()
+    print(selection_sort.arr)
             
