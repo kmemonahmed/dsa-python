@@ -6,6 +6,7 @@ def bubble_sort(arr):
 
     return arr
 
-unsorted_arr = [5, 2, 1, 7, 6, 8, 3, 4, 9, 0, 10, 7, 14, 14, 16, 13, 11]
-sorted_arr = bubble_sort(unsorted_arr)
-print(sorted_arr)
+if __name__ == "__main__":
+    unsorted_arr = [5, 2, 1, 7, 6, 8, 3, 4, 9, 0, 10, 7, 14, 14, 16, 13, 11]
+    sorted_arr = bubble_sort(unsorted_arr)
+    print(sorted_arr)
