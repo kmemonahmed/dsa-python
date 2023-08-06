@@ -153,3 +153,5 @@ list_1.print_linked_list()
 
 list_1.remove_element(2)
 list_1.print_linked_list()
+
+print('-----------xxxx------------------------')
