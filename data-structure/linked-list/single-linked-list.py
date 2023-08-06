@@ -25,6 +25,14 @@ class SingleLinkedList:
         else:
             self.head = data
 
+    def insert_at_end(self, data):
+        if self.head:
+            head_copy = self.head
+            while head_copy.next:
+                head_copy = head_copy.next
+            head_copy.next = data
+        else:
+            self.head = data
 
 list_1 = SingleLinkedList()
 list_1.print_linked_list()
@@ -34,4 +42,12 @@ list_1.print_linked_list()
 
 data=Node(2)
 list_1.insert_at_begining(data)
+list_1.print_linked_list()
+
+data = Node(3)
+list_1.insert_at_end(data)
+list_1.print_linked_list()
+
+data = Node(4)
+list_1.insert_at_end(data)
 list_1.print_linked_list()
