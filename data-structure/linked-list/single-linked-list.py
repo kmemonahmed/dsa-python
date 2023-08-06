@@ -53,6 +53,64 @@ class SingleLinkedList:
         else:
             print('Middle node is not present')
 
+    def remove_first_element(self):
+        if self.head:
+            self.head = self.head.next
+
+    def remove_last_element(self):
+        if self.head:
+            head_copy = self.head
+            prev = None
+            while head_copy.next:
+                prev = head_copy
+                head_copy = head_copy.next
+            
+            if prev:
+                prev.next = None
+            else:
+                self.head = None
+
+    def remove_element(self, data):
+        if self.head:
+            if self.head.val == data:
+                self.head = self.head.next
+            else:
+                head_copy = self.head
+                while head_copy:
+                    prev = head_copy
+                    if head_copy.next and head_copy.next.val == data:
+                        prev.next = head_copy.next.next
+                        break
+                    else:
+                        head_copy = head_copy.next
+
+                if head_copy == None:
+                    print('Item not found in linked list!')
+
+        else:
+            print("Linked list is empty!")
+
+    def remove_element_method_2(self, data):
+        if self.head:
+            if self.head.val == data:
+                self.head = self.head.next
+            else:
+                head_copy = self.head
+                while head_copy:
+                    if head_copy.val == data:
+                        break
+                    prev = head_copy
+                    head_copy = head_copy.next
+
+                if head_copy == None:
+                    print('Item not found in linked list!')
+                else:
+                    prev.next = head_copy.next
+                    head_copy = None
+
+        else:
+            print("Linked list is empty!")
+
 
 
 
@@ -78,3 +136,20 @@ if middle_node:
     list_1.print_linked_list()
 else:
     print('Middle node not found')
+
+
+
+list_1.remove_first_element()
+list_1.print_linked_list()
+
+list_1.remove_last_element()
+list_1.print_linked_list()
+
+list_1.remove_element(5)
+list_1.print_linked_list()
+
+list_1.remove_element_method_2(3)
+list_1.print_linked_list()
+
+list_1.remove_element(2)
+list_1.print_linked_list()
