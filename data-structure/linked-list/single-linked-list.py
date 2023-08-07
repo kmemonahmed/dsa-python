@@ -15,7 +15,7 @@ class SingleLinkedList:
             to_travarse = to_travarse.next
 
         list_str+= str(None)
-        print(list_str)
+        print(list_str + '\n')
 
     def find_node(self, data):
         to_find = self.head
@@ -52,6 +52,17 @@ class SingleLinkedList:
             middle_node.next = data
         else:
             print('Middle node is not present')
+
+    def reverse(self):
+        prev = None
+        current = self.head
+
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        self.head = prev
 
     def remove_first_element(self):
         if self.head:
@@ -113,45 +124,64 @@ class SingleLinkedList:
 
 
 
-
 list_1 = SingleLinkedList()
+print('Initial linked list')
 list_1.print_linked_list()
 
 list_1.insert_at_begining(2)
+print('Insert 2 at begining')
 list_1.print_linked_list()
 
 list_1.insert_at_begining(1)
+print('Insert 1 at begining')
 list_1.print_linked_list()
 
 list_1.insert_at_end(3)
+print('Insert 3 at end')
 list_1.print_linked_list()
 
 list_1.insert_at_end(4)
+print('Insert 4 at end')
 list_1.print_linked_list()
+
+
 
 # insert after 2
 middle_node = list_1.find_node(2)
 if middle_node:
     list_1.insert_in_between(middle_node, 5)
+    print('Insert 5 after node.val 2')
     list_1.print_linked_list()
 else:
     print('Middle node not found')
 
+list_1.reverse()
+print('Reverse Linked List')
+list_1.print_linked_list()
+
+list_1.reverse()
+print('Reverse back Linked List')
+list_1.print_linked_list()
 
 
 list_1.remove_first_element()
+print('Remove first element')
 list_1.print_linked_list()
 
 list_1.remove_last_element()
+print('Remove Last Element')
 list_1.print_linked_list()
 
 list_1.remove_element(5)
+print('Remove 5 from linked list')
 list_1.print_linked_list()
 
 list_1.remove_element_method_2(3)
+print('Remove 3 from linked list')
 list_1.print_linked_list()
 
 list_1.remove_element(2)
+print('Remove 2 from linked list')
 list_1.print_linked_list()
 
 print('-----------xxxx------------------------')
