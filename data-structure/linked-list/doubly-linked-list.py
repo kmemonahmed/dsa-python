@@ -34,6 +34,18 @@ class DoublyLinkedList:
             self.head.prev = data
         self.head = data
 
+    def insert_at_end(self, data):
+        data = Node(data)
+
+        if self.head:
+            current = self.head
+            while current.next:
+                current = current.next
+
+            data.prev = current
+            current.next = data
+        else:
+            self.head = data
 
 list_1 = DoublyLinkedList()
 print('Initial linked list')
@@ -45,4 +57,13 @@ list_1.print_linked_list()
 
 list_1.insert_at_begining(1)
 print('Insert 1 at begining')
+list_1.print_linked_list()
+
+
+list_1.insert_at_end(3)
+print('Insert 3 at end')
+list_1.print_linked_list()
+
+list_1.insert_at_end(4)
+print('Insert 4 at end')
 list_1.print_linked_list()
