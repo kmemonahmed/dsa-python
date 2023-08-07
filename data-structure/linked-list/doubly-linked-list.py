@@ -26,6 +26,15 @@ class DoublyLinkedList:
             to_travarse = to_travarse.next
         print(list_str + '\n')
 
+    def find_node(self, data):
+        current = self.head
+        while current:
+            if current.next:
+                if current.next.val == data:
+                    return current.next
+            current = current.next
+        return None
+
 
     def insert_at_begining(self, data):
         data = Node(data)
@@ -47,6 +56,18 @@ class DoublyLinkedList:
         else:
             self.head = data
 
+
+    def insert_in_between(self, prev_data, data):
+        middle_node = self.find_node(prev_data)
+        if middle_node:
+            data = Node(data)
+            data.prev = middle_node
+            data.next = middle_node.next
+            middle_node.next.prev = data
+            middle_node.next = data
+        else:
+            print('Data not present in the liked list')
+
 list_1 = DoublyLinkedList()
 print('Initial linked list')
 list_1.print_linked_list()
@@ -66,4 +87,8 @@ list_1.print_linked_list()
 
 list_1.insert_at_end(4)
 print('Insert 4 at end')
+list_1.print_linked_list()
+
+list_1.insert_in_between(2, 5)
+print('Insert 5 after node.val 2')
 list_1.print_linked_list()
