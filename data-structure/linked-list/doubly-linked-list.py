@@ -12,11 +12,20 @@ class DoublyLinkedList:
         list_str = ""
         to_travarse = self.head
         while to_travarse:
-            list_str+=f"{to_travarse.val}->"
+            if to_travarse.prev:
+                print('Prev:', to_travarse.prev.val)
+            else:
+                print('Prev:', None)
+            print('Current:', to_travarse.val)
+            if to_travarse.next:
+                print('Next:', to_travarse.next.val)
+            else:
+                print('Next:', None)
+            print(list_str + '-----------')
+            
             to_travarse = to_travarse.next
-
-        list_str+= str(None)
         print(list_str + '\n')
+
 
     def insert_at_begining(self, data):
         data = Node(data)
