@@ -81,6 +81,14 @@ class DoublyLinkedList:
         if temp:
             self.head = temp.prev
 
+
+    def remove_first_element(self):
+        if self.head:
+            if self.head.next.prev:
+                self.head.next.prev = None
+            self.head = self.head.next
+    
+
 list_1 = DoublyLinkedList()
 print('Initial linked list')
 list_1.print_linked_list()
@@ -108,4 +116,12 @@ list_1.print_linked_list()
 
 list_1.reverse()
 print('Reverse Linked List')
+list_1.print_linked_list()
+
+list_1.reverse()
+print('Reverse back Linked List')
+list_1.print_linked_list()
+
+list_1.remove_first_element()
+print('Remove first element')
 list_1.print_linked_list()
