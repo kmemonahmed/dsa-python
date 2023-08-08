@@ -90,9 +90,8 @@ class SingleLinkedList:
             else:
                 head_copy = self.head
                 while head_copy:
-                    prev = head_copy
                     if head_copy.next and head_copy.next.val == data:
-                        prev.next = head_copy.next.next
+                        head_copy.next = head_copy.next.next
                         break
                     else:
                         head_copy = head_copy.next

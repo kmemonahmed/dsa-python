@@ -10,20 +10,23 @@ class DoublyLinkedList:
 
     def print_linked_list(self):
         list_str = ""
-        to_travarse = self.head
-        while to_travarse:
-            if to_travarse.prev:
-                print('Prev:', to_travarse.prev.val)
-            else:
-                print('Prev:', None)
-            print('Current:', to_travarse.val)
-            if to_travarse.next:
-                print('Next:', to_travarse.next.val)
-            else:
-                print('Next:', None)
-            print(list_str + '-----------')
-            
-            to_travarse = to_travarse.next
+        if self.head:
+            to_travarse = self.head
+            while to_travarse:
+                if to_travarse.prev:
+                    print('Prev:', to_travarse.prev.val)
+                else:
+                    print('Prev:', None)
+                print('Current:', to_travarse.val)
+                if to_travarse.next:
+                    print('Next:', to_travarse.next.val)
+                else:
+                    print('Next:', None)
+                print(list_str + '-----------')
+                
+                to_travarse = to_travarse.next
+        else:
+            list_str += str(self.head)
         print(list_str + '\n')
 
     def find_node(self, data):
@@ -96,6 +99,40 @@ class DoublyLinkedList:
             else:
                 current.prev.next = None
                 break
+    
+    def remove_element(self, data):
+        if self.head:
+            if self.head.val == data:
+                if self.head.next and self.head.next.prev:
+                    self.head.next.prev = None
+                self.head = self.head.next
+            else:
+                current = self.head
+                while current:
+                    if current.next and current.next.val == data:
+                        if current.next.next.prev:
+                            current.next.next.prev = current
+                        current.next = current.next.next
+                        break
+                    else:
+                        current = current.next
+
+                if current is None:
+                    print('Item not found in the linked list')
+                
+        else:
+            print('Linked list is empty!')
+
+
+    def remove_element_method_2(self, data):
+        expected_node = self.find_node(data)
+        if expected_node:
+            if expected_node.next and expected_node.next.prev:
+                expected_node.next.prev = expected_node.prev
+            expected_node.prev.next = expected_node.next
+        else:
+            print("Item not found in the lined list")
+
 
 list_1 = DoublyLinkedList()
 print('Initial linked list')
@@ -137,3 +174,18 @@ list_1.print_linked_list()
 list_1.remove_last_element()
 print('Remove Last Element')
 list_1.print_linked_list()
+
+list_1.remove_element(5)
+print('Remove 5 from linked list')
+list_1.print_linked_list()
+
+
+list_1.remove_element_method_2(3)
+print('Remove 3 from linked list')
+list_1.print_linked_list()
+
+list_1.remove_element(2)
+print('Remove 2 from linked list')
+list_1.print_linked_list()
+
+print('-----------xxxx------------------------')
