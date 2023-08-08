@@ -88,6 +88,17 @@ class DoublyLinkedList:
                 self.head.next.prev = None
             self.head = self.head.next
     
+    def remove_last_element(self):
+        current = self.head
+        prev = None
+        while current.next:
+            prev = current
+            current = current.next
+
+        if prev:
+            prev.next = None
+        else:
+            self.head = None
 
 list_1 = DoublyLinkedList()
 print('Initial linked list')
@@ -124,4 +135,8 @@ list_1.print_linked_list()
 
 list_1.remove_first_element()
 print('Remove first element')
+list_1.print_linked_list()
+
+list_1.remove_last_element()
+print('Remove Last Element')
 list_1.print_linked_list()
