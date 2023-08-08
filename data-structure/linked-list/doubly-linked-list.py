@@ -90,15 +90,12 @@ class DoublyLinkedList:
     
     def remove_last_element(self):
         current = self.head
-        prev = None
-        while current.next:
-            prev = current
-            current = current.next
-
-        if prev:
-            prev.next = None
-        else:
-            self.head = None
+        while current:
+            if current.next:
+                current = current.next
+            else:
+                current.prev.next = None
+                break
 
 list_1 = DoublyLinkedList()
 print('Initial linked list')
