@@ -62,7 +62,9 @@ class SingleLinkedList:
             current.next = prev
             prev = current
             current = next_node
-        self.head = prev
+
+        if prev:
+            self.head = prev
 
     def remove_first_element(self):
         if self.head:

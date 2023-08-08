@@ -68,6 +68,19 @@ class DoublyLinkedList:
         else:
             print('Data not present in the liked list')
 
+    def reverse(self):
+        temp = None
+        current = self.head
+
+        while current:
+            temp = current.prev
+            current.prev = current.next
+            current.next = temp
+            current = current.prev
+
+        if temp:
+            self.head = temp.prev
+
 list_1 = DoublyLinkedList()
 print('Initial linked list')
 list_1.print_linked_list()
@@ -91,4 +104,8 @@ list_1.print_linked_list()
 
 list_1.insert_in_between(2, 5)
 print('Insert 5 after node.val 2')
+list_1.print_linked_list()
+
+list_1.reverse()
+print('Reverse Linked List')
 list_1.print_linked_list()
