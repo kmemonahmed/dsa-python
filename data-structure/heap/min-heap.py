@@ -61,3 +61,5 @@ heap = MinHeap()
 # build heap
 heap.buildHeap([9, 8, 7, 6, 5, 4, 3, 2, 1])
 print(heap.heap)
+# insert key
+heap.insertKey(0)
